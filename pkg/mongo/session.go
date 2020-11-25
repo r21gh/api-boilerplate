@@ -36,3 +36,12 @@ func (s *Session) Close() {
 	}
 }
 
+
+// DropDatabase is responsible for
+// dropping the specified database
+func (s *Session) DropDatabase(db string) error {
+	if s.session != nil {
+		return s.session.DB(db).DropDatabase()
+	}
+	return nil
+}
