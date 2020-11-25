@@ -16,7 +16,7 @@ type UserService struct {
 // session parameter and sets up the user index.
 func NewUserService(session *Session, dbName string, collectionName string) *UserService {
 	collection := session.GetCollection(dbName, collectionName)
-	collection.EnsuserIndex(userModelIndex())
+	collection.EnsureIndex(userModelIndex())
 	return &UserService{collection}
 }
 
